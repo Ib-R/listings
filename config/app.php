@@ -181,6 +181,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
         Backpack\Base\BaseServiceProvider::class,
+        Backpack\CRUD\CrudServiceProvider::class,
+        Backpack\LangFileManager\LangFileManagerServiceProvider::class,
 
     ],
 

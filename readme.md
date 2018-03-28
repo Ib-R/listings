@@ -8,7 +8,9 @@ This project is a traning project that contains:
 * Access Control
 * File Management
 * REST Api
-* Admin Area
+* Admin Area  (Backend)
+    * File Managment
+    * Language file management
 
 ## Additional Packages Used
 
