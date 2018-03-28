@@ -2,18 +2,20 @@
 
 This project is a traning project that contains:
 
-- Full CRUD functionality (Posts)
-- User Auth
-- Database Model Relationship (users with posts)
-- Access Control
-- File Management
-- REST Api
+* Full CRUD functionality (Posts)
+* User Auth
+* Database Model Relationship (users with posts)
+* Access Control
+* File Management
+* REST Api
+* Admin Area
 
 ## Additional Packages Used
 
-- CKEditor (Editor)
-- Laravel Collective (forms)
-- Laravel Cors
+* CKEditor (Editor)
+* Laravel Collective (forms)
+* Laravel Cors
+* Backpack laravel
 
 ## License
 
