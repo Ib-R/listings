@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Api Interface</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a href="#" class="navbar-brand">Api Interface</a>
+        <ul class="nav navbar-nav">
+            <li><a href="#">Home</a></li>
+        </ul>
+    </nav>
+
+    <br>
+    <div class="container">
+        <h1>Add Item</h1>
+        <form id="itemForm">
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" id="title" class="form-control">
+            </div>
+            <div class="form-group">
+                    <label>Body</label>
+                    <textarea id="body" class="form-control"></textarea>
+            </div>
+            <input type="submit" value="Submit" class="btn btn-primary">
+        </form>
+        <hr>
+
+        <ul id="items" class="list-group"></ul>
+    </div>
+    
+        <script
+            src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+            crossorigin="anonymous">
+        </script>
+
+        <script>
+        $(document).ready(function(){
+            getItems();
+            // Submit event
+            $('#itemForm').on('submit', function(e){
+                e.preventDefault();
+
+                var title = $('#title').val();
+                var body = $('#body').val();
+
+                addItem(title, body);
+            });
+            // Delete event
+            $('body').on('click', '.deleteLink', function(e){
+                e.preventDefault();
+                
+                var id = $(this).data('id');
+                deleteItem(id);
+            });
+
+            // Delete item through api
+            function deleteItem(id){
+                $.ajax({
+                    method: 'POST',
+                    url: 'http://lara/api/'+id,
+                    data: {_method: 'DELETE'}
+                }).done(function(item){
+                    alert('Item # '+id+' removed');
+                    location.reload();
+                });
+            }
+
+            // insert items using api
+            function addItem(title, body){
+                $.ajax({
+                    method: 'POST',
+                    url: 'http://lara/api',
+                    data: {title: title, body: body}
+                }).done(function(item){
+                    alert('Item # '+item.id+' added');
+                    location.reload();
+                });
+            }
+
+            // Get items from Api
+            function getItems(){
+                $.ajax({
+                    url:'http://lara/api'
+                }).done(function(items){
+                    var output = '';
+                    $.each(items, function(key, item){
+                        output += `
+                            <li class="list-group-item">
+                                <strong>${item.title}: </strong>${item.body} <a href="#" class="deleteLink" data-id="${item.id}">Delete</a>
+
+                            </li>
+                        `;
+                    });
+                    $('#items').append(output);
+                });
+            }
+         });
+    </script>
+</body>
+</html>
