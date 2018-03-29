@@ -21,3 +21,13 @@ Route::resource('api', 'ItemsController');
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index');
+
+Route::group([
+    'prefix' => config('backpack.base.route_prefix', 'admin'),
+    'middleware' => ['admin'],
+    'namespace' => 'Admin'
+], function() {
+    // your CRUD resources and other admin routes here
+    CRUD::resource('post', 'PostCrudController');
+    CRUD::resource('tag', 'TagCrudController');
+});

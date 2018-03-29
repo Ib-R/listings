@@ -9,8 +9,9 @@ This project is a traning project that contains:
 * File Management
 * REST Api
 * Admin Area  (Backend)
-    * File Managment
+    * File Management
     * Language file management
+    * Full CRUD Functionlity (posts, etc)
 
 ## Additional Packages Used
 
