@@ -183,6 +183,7 @@ return [
         Backpack\Base\BaseServiceProvider::class,
         Backpack\CRUD\CrudServiceProvider::class,
         Backpack\LangFileManager\LangFileManagerServiceProvider::class,
+        Backpack\PermissionManager\PermissionManagerServiceProvider::class,
 
     ],
 

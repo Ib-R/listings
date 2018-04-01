@@ -1,17 +1,22 @@
-## About Laravel
+## About Laravel Project
 
 This project is a traning project that contains:
 
 * Full CRUD functionality (Posts)
-* User Auth
+* User registration
+* User login & dashboard
+* Access control
 * Database Model Relationship (users with posts)
+    * Adding user id to posts
 * Access Control
-* File Management
+* File uploading
+* Naming files & fetching file info
+* Storage module
 * REST Api
 * Admin Area  (Backend)
     * File Management
     * Language file management
-    * Full CRUD Functionlity (posts, etc)
+    * Full Control (posts, etc)
 
 ## Additional Packages Used
 

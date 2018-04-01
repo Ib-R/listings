@@ -126,6 +126,29 @@ class PostCrudController extends CrudController
         // $this->crud->limit();
     }
 
+    public function edit($id){
+        //check for the correct user
+        $post = Post::find($id);
+        if(auth()->user()->id !== $post->user_id){
+            \Alert::error('Unauthorized Access!')->flash();
+            return redirect('/admin/post');
+        }else{
+            $this->crud->hasAccessOrFail('update');
+
+            // get the info for that entry
+            $this->data['entry'] = $this->crud->getEntry($id);
+            $this->data['crud'] = $this->crud;
+            $this->data['saveAction'] = $this->getSaveAction();
+            $this->data['fields'] = $this->crud->getUpdateFields($id);
+            $this->data['title'] = trans('backpack::crud.edit').' '.$this->crud->entity_name;
+
+            $this->data['id'] = $id;
+
+            // load the view from /resources/views/vendor/backpack/crud/ if it exists, otherwise load the one in the package
+            return view($this->crud->getEditView(), $this->data);
+        }
+    }
+
     public function store(StoreRequest $request)
     {
         // your additional operations before save here
