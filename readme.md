@@ -1,6 +1,6 @@
 ## About Laravel Project
 
-This project is a traning project that contains:
+### This Project Contains:
 
 * Full CRUD functionality (Posts)
 * User registration
@@ -16,7 +16,9 @@ This project is a traning project that contains:
 * Admin Area  (Backend)
     * File Management
     * Language file management
-    * Full Control (posts, etc)
+    * Full CRUD (posts, etc)
+        * Access control (posts, etc)
+    * User Permissions
 
 ## Additional Packages Used
 

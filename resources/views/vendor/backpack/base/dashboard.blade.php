@@ -19,6 +19,9 @@
             <div class="box box-default">
                 <div class="box-header with-border">
                     <div class="box-title">{{ trans('backpack::base.login_status') }}</div>
+                    @role('Editor')
+                        <h3>Heyy Editor</h3>
+                    @endrole
                 </div>
 
                 <div class="box-body">{{ trans('backpack::base.logged_in') }}</div>

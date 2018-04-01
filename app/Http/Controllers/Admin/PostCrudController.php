@@ -127,7 +127,7 @@ class PostCrudController extends CrudController
     }
 
     public function edit($id){
-        //check for the correct user
+        //Check for the correct user
         $post = Post::find($id);
         if(auth()->user()->id !== $post->user_id){
             \Alert::error('Unauthorized Access!')->flash();
