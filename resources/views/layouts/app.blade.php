@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{{asset('/storage/home-icon.png')}}">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -38,9 +39,9 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        <li><a class="py-2 d-none d-md-inline-block" href="/about">About</a></li>
-                        <li><a class="py-2 d-none d-md-inline-block" href="/posts">Posts</a></li>
-                        <li><a class="py-2 d-none d-md-inline-block" href="/frontend">Api</a></li>
+                        <li><a class="py-2 d-none d-md-inline-block" href="{{ url('/about') }}">About</a></li>
+                        <li><a class="py-2 d-none d-md-inline-block" href="{{ url('/posts') }}">Posts</a></li>
+                        <li><a class="py-2 d-none d-md-inline-block" href="{{ url('/frontend') }}">Api</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -56,7 +57,10 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="/dashboard">Dashboard</a></li>
+                                    <li><a href="{{url('/dashboard')}}">Dashboard</a></li>
+                                    @role('Editor')
+                                    <li><a href="{{url('/admin')}}">Admin Area</a></li>
+                                    @endrole
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -68,7 +72,7 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
-                                    <li><a class="py-2 d-none d-md-inline-block" href="/posts/create">Create Post</a></li>
+                                    <li><a class="py-2 d-none d-md-inline-block" href="{{ url('/posts/create') }}">Create Post</a></li>
                                 </ul>
                             </li>
                         @endif
@@ -86,7 +90,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script src="{{ asset('../vendor/unisharp/laravel-ckeditor/ckeditor.js')}}"></script>
     <script>
         CKEDITOR.replace( 'article-ckeditor' );
     </script>

@@ -20,7 +20,7 @@ Route::resource('api', 'ItemsController');
 
 Auth::routes();
 
-Route::get('/dashboard', 'DashboardController@index');
+Route::get('/dashboard', 'DashboardController@index')->name('front');
 
 Route::group([
     'prefix' => config('backpack.base.route_prefix', 'admin'),

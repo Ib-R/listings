@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <a href="/posts" class="btn btn-default">Go Back</a>
+    <a href="{{url('/posts')}}" class="btn btn-default">Go Back</a>
     <div class="panel panel-default">
         <div class="panel-heading">
             <h1>{{$post->title}}</h1>
-            <img style="width:100%;" src="/storage/cover_imgs/{{$post->cover_img}}" alt="Cover Image">
+            <img style="width:100%;" src="{{url('/storage/cover_imgs/'.$post->cover_img)}}" alt="Cover Image">
         </div>
         <div class="panel-body">
             <p>{!!$post->body!!}</p>
